@@ -10,7 +10,6 @@ from utils import attach
 
 import tests
 
-
 DEFAULT_BROWSER_VERSION = "100.0"
 
 
@@ -25,21 +24,12 @@ def path(file_name):
     return os.path.abspath(os.path.join(os.path.dirname(tests.__file__), f'resources/{file_name}'))
 
 
-@pytest.fixture(scope='function', autouse=True)
-def browser_management():
-    browser.config.base_url = 'https://demoqa.com'
-    browser.config.window_width = 1920
-    browser.config.window_height = 1080
-    yield
-    browser.quit()
-
-
 @pytest.fixture(scope='session', autouse=True)
 def load_env():
     load_dotenv()
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='function', autouse=True)
 def setup_browser(request):
     browser.config.base_url = 'https://demoqa.com'
     browser.config.window_width = 1920
