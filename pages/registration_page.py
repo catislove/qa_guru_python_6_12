@@ -48,7 +48,7 @@ class RegistrationPage:
 
     def fill_state(self, state):
         browser.element('#state').perform(command.js.scroll_into_view).click()
-        browser.all("[id^=react-select][id*=option]").element_by(have.exact_text(state)).click()
+        browser.element('//div[@id="state"]//div[text()="NCR"]').click()
 
     def fill_city(self, city):
         browser.element('#city').click()
