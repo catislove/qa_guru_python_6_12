@@ -10,6 +10,8 @@ class RegistrationPage:
 
     def open_practice_form_page(self):
         browser.open('/automation-practice-form')
+        browser.driver.execute_script("$('footer').remove()")
+        browser.driver.execute_script("$('#fixedban').remove()")
 
     def fill_first_name(self, value):
         browser.element('#firstName').type(value)
