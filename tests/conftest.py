@@ -32,6 +32,8 @@ def load_env():
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser(request):
     browser.config.base_url = 'https://demoqa.com'
+    browser.config.window_width = 1400
+    browser.config.window_height = 1000
 
     browser_version = request.config.getoption('--browser_version')
     browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
