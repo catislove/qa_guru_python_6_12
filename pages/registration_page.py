@@ -46,7 +46,7 @@ class RegistrationPage:
     def fill_current_address(self, value):
         browser.element('#currentAddress').type(value)
 
-    def fill_state(self, state):
+    def fill_state(self):
         browser.element('#state').perform(command.js.scroll_into_view).click()
         browser.element('//div[@id="state"]//div[text()="NCR"]').click()
 
