@@ -52,4 +52,4 @@ class RegistrationPage:
         browser.element(by.xpath('//div[@id = "city"]//input')).send_keys(city).press_tab()
 
     def submit(self):
-        browser.element('#submit').click().press_enter()
+        browser.element(by.id('submit')).click()
