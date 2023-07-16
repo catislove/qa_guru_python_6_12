@@ -1,5 +1,5 @@
 import os
-from selene import browser, have, command
+from selene import browser, have, command, by
 
 from tests.conftest import path
 
@@ -46,13 +46,10 @@ class RegistrationPage:
     def fill_current_address(self, value):
         browser.element('#currentAddress').type(value)
 
-    def fill_state(self):
-        browser.element('#state').click()
-        browser.element('//div[@id="state"]//div[text()="NCR"]').click()
-
+    def fill_state(self, state):
+        browser.element(by.xpath('//div[@id = "state"]//input')).send_keys(state).press_tab()
     def fill_city(self, city):
-        browser.element('#city').click()
-        browser.all("[id^=react-select][id*=option]").element_by(have.exact_text(city)).click()
+        browser.element(by.xpath('//div[@id = "city"]//input')).send_keys(city).press_tab()
 
     def submit(self):
         browser.element('#submit').click().press_enter()
